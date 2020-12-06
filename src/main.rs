@@ -17,7 +17,7 @@ fn main() {
     let client = create_oauth_client();
     rocket::ignite()
         .manage(client)
-        .mount("/", StaticFiles::from(crate_relative!("/static")))
+        .mount("/", StaticFiles::from(crate_relative!("/public")))
         .mount("/oauth", routes![oauth_main, oauth_callback])
         .mount("/api", routes![get_user])
         .launch();

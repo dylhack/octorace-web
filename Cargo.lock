@@ -1019,7 +1019,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "octorace-backend"
+name = "octorace"
 version = "0.1.0"
 dependencies = [
  "lazy_static",
