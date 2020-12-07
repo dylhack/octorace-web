@@ -1,0 +1,25 @@
+:root {
+  --background: #3B3667;
+  --foreground: #46EAEE;
+  --accent: #3D558D;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+header {
+  max-width: 300px;
+  margin: auto;
+}
+
+.content {
+  max-width: 300px;
+  margin: auto;
+}
+
+
+@media (min-width: 1000px) {
+
+}
