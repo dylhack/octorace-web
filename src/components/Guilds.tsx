@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/index.css';
-import '../css/Guilds.css';
 import {
     ENDPOINTS,
     GUILD_CLASS,
