@@ -60,7 +60,7 @@ export default class Guilds extends React.Component<any, any> {
         let nameB = guildB.name.toUpperCase();
         if (nameA === nameB) {
             return 0;
-        } else if (nameA > nameB) {
+        } else if (nameA < nameB) {
             return -1;
         } else {
             return 1;
@@ -76,7 +76,8 @@ export default class Guilds extends React.Component<any, any> {
         let guilds: Guild[] = await res.json();
 
         guilds = guilds.filter(Guilds.filterGuild)
-            .sort(Guilds.cmpGuilds);
+            .sort(Guilds.cmpGuilds)
+            .sort(Guilds.cmpGuildsName);
 
         if (guilds.length > MAX_GUILDS) {
             guilds = guilds.slice(0, MAX_GUILDS);
