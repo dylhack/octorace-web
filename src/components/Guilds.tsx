@@ -14,7 +14,7 @@ import { Guild } from '../models/Guild';
 
 
 export default class Guilds extends React.Component<any, any> {
-    public async render(): Promise<React.ReactNode> {
+    public async render(): Promise<React.ReactNodeArray> {
         let target = document.getElementById(LISTINGS);
 
         if (target == null) {
@@ -23,7 +23,7 @@ export default class Guilds extends React.Component<any, any> {
 
         let res = await fetch(ENDPOINTS.GUILDS);
         let guilds: Guild[] = await res.json();
-        let rendered = [];
+        let rendered: React.ReactNodeArray = [];
         for (let guild of guilds) {
             rendered.push(Guilds.renderGuild(guild));
         }
