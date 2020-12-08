@@ -56,9 +56,11 @@ export default class Guilds extends React.Component<any, any> {
     }
 
     private static cmpGuildsName(guildA: Guild, guildB: Guild): number {
-        if (guildA.name === guildB.name) {
+        let nameA = guildA.name.toUpperCase();
+        let nameB = guildB.name.toUpperCase();
+        if (nameA === nameB) {
             return 0;
-        } else if (guildA.name > guildB.name) {
+        } else if (nameA > nameB) {
             return -1;
         } else {
             return 1;
