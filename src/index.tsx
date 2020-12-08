@@ -9,11 +9,11 @@ import './css/index.css';
 export const ENDPOINTS = {
   USER: '/api/user',
   GUILDS: '/api/guilds',
+  OAUTH: 'oauth',
 };
 
 
 /* Configurable */
-export const OAUTH = 'oauth'
 export const MAX_GUILDS = 5;
 
 

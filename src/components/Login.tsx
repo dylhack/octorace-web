@@ -1,5 +1,5 @@
 import React from 'react';
-import { CONTENT_CLASS, LOGIN_BUTTON_CLASS, OAUTH } from '../index'
+import { CONTENT_CLASS, LOGIN_BUTTON_CLASS, ENDPOINTS } from '../index'
 import '../css/index.css';
 import '../css/Login.css';
 
@@ -8,7 +8,7 @@ export default class Login extends React.Component<any, any> {
     private onClick(event: React.MouseEvent) {
         // Go-to oauth page
         window.location.replace(
-            `/${OAUTH}`,
+            `/${ENDPOINTS.OAUTH}`,
         );
     }
 
