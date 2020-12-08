@@ -18,13 +18,19 @@
     max-width: 51px;
 }
 
+.guild-details {
+    display: inline-block;
+    padding-left: 1em;
+}
+
 .guild-name {
     font-size: 1em;
+    margin-bottom: 0;
     display: inline-block;
 }
 
 .guild-count {
-
+    margin-top: 0.5em;
 }
 
 .guild-open {
