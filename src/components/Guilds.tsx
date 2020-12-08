@@ -17,12 +17,6 @@ import { Async } from 'react-async';
 
 export default class Guilds extends React.Component<any, any> {
     public render(): React.ReactNode {
-        let target = document.getElementById(LISTINGS);
-
-        if (target == null) {
-            throw new Error("Couldn't get listenings div.");
-        }
-
         return (
             <Async promiseFn={Guilds.getGuilds}>
                 {(guilds: Guild[]) => {

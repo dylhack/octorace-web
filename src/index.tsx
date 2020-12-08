@@ -14,7 +14,6 @@ export const ENDPOINTS = {
 
 /* Configurable */
 export const OAUTH = 'oauth'
-export const LISTINGS = 'listings';
 
 
 /* General CSS */
