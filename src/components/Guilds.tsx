@@ -7,6 +7,7 @@ import {
     GUILD_COUNT_CLASS,
     GUILD_ICON_CLASS,
     GUILD_NAME_CLASS,
+    MAX_GUILDS,
     OPEN_GUILD_ICON
 } from '..';
 import { Guild } from '../models/Guild';
@@ -44,9 +45,27 @@ export default class Guilds extends React.Component<any, any> {
         );
     }
 
+    private static cmpGuilds(guildA: Guild, guildB: Guild): number {
+        if (guildA.profiles.length === guildB.profiles.length) {
+            return 0;
+        } else if (guildA.profiles.length > guildB.profiles.length) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+
     private static async getGuilds(): Promise<Guild[]> {
         let res = await fetch(ENDPOINTS.GUILDS);
-        return (await res.json());
+        let guilds: Guild[] = await res.json();
+
+        guilds = guilds.sort(Guilds.cmpGuilds);
+
+        if (guilds.length > MAX_GUILDS) {
+            guilds = guilds.slice(0, MAX_GUILDS);
+        }
+
+        return guilds;
     }
 
     private static renderGuild(guild: Guild): React.ReactNode {

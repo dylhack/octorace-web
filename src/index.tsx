@@ -14,6 +14,7 @@ export const ENDPOINTS = {
 
 /* Configurable */
 export const OAUTH = 'oauth'
+export const MAX_GUILDS = 5;
 
 
 /* General CSS */
