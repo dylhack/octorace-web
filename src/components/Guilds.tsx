@@ -3,24 +3,35 @@ import '../css/index.css';
 import '../css/Guilds.css';
 import {
     CONTENT_CLASS,
+    ENDPOINTS,
     GUILD_COUNT_CLASS,
     GUILD_ICON_CLASS,
     GUILD_NAME_CLASS,
+    LISTINGS,
     OPEN_GUILD_ICON
 } from '..';
 import { Guild } from '../models/Guild';
 
 
 export default class Guilds extends React.Component<any, any> {
-    private guilds: Guild[];
+    public async render(): Promise<React.ReactNode> {
+        let target = document.getElementById(LISTINGS);
 
-    constructor(props: any, guilds: Guild[]) {
-        super(props);
-        this.guilds = guilds;
+        if (target == null) {
+            throw new Error("Couldn't get listenings div.");
+        }
+
+        let res = await fetch(ENDPOINTS.GUILDS);
+        let guilds: Guild[] = await res.json();
+        let rendered = [];
+        for (let guild of guilds) {
+            rendered.push(Guilds.renderGuild(guild));
+        }
+
+        return rendered;
     }
 
-
-    private renderGuild(guild: Guild): React.ReactNode {
+    private static renderGuild(guild: Guild): React.ReactNode {
         return (
             <div>
                 <img className={GUILD_ICON_CLASS} src={guild.icon_url}></img>
@@ -29,14 +40,5 @@ export default class Guilds extends React.Component<any, any> {
                 <img className={OPEN_GUILD_ICON} src={''}></img>
             </div>
         );
-    }
-
-
-    public render(): React.ReactNode {
-        return (
-            <div className={CONTENT_CLASS}>
-                {this.guilds.map(this.renderGuild)}
-            </div>
-        )
     }
 }

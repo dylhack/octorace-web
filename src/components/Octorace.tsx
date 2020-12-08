@@ -7,6 +7,7 @@ import {
     Route,
     Switch,
 } from 'react-router-dom';
+import { Async } from 'react-async';
 
 
 export default class Octorace extends React.Component<any, any> {
@@ -15,12 +16,14 @@ export default class Octorace extends React.Component<any, any> {
         return (
             <Router>
                 <Switch>
-                    <Route exact path="/">
-                        { loggedIn ? <Guilds/> : <Login/> }
-                    </Route>
-                    <Route exact path="/guild/:guildid">
-                        { loggedIn ? <Guild/> : <Login/> }
-                    </Route>
+                    <Async>
+                        <Route exact path="/">
+                            { loggedIn ? <Guilds/> : <Login/> }
+                        </Route>
+                        <Route exact path="/guild/:guildid">
+                            { loggedIn ? <Guild/> : <Login/> }
+                        </Route>
+                    </Async>
                 </Switch>
             </Router>
         );

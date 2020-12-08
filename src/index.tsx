@@ -2,12 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Octorace from './components/Octorace';
 import Header from './components/Header';
-import { Guild } from './models/Guild';
 import './css/index.css';
+
+
+/* Endpoints */
+export const ENDPOINTS = {
+  USER: '/api/user',
+  GUILDS: '/api/guilds',
+};
 
 
 /* Configurable */
 export const OAUTH = 'oauth'
+export const LISTINGS = 'listings';
 
 
 /* General CSS */
