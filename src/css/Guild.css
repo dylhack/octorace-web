@@ -30,4 +30,6 @@
 .guild-open {
     max-width: 25px;
     max-height: 25px;
+    float: right;
+    clear: right;
 }
