@@ -9,8 +9,8 @@
 .guild {
     background-color: var(--accent);
     max-width: 380px;
-    max-height: 10vh;
-    min-height: 70px;
+    max-height: 65px;
+    min-height: 50px;
     padding: 1em;
     margin-right: auto;
     margin-left: auto;
