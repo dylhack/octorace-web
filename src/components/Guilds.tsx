@@ -30,7 +30,7 @@ export default class Guilds extends React.Component<any, any> {
 
     private static async getGuilds(): Promise<Guild[]> {
         let res = await fetch(ENDPOINTS.GUILDS);
-        return res.json();
+        return (await res.json());
     }
 
     private static renderGuild(guild: Guild): React.ReactNode {
