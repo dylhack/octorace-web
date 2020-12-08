@@ -1,8 +1,8 @@
 :root {
-  --background: #3B3667;
-  --foreground: #46EAEE;
-  --accent: #3D558D;
-  --darker-fg: #3184AB;
+  --background: #3b3667;
+  --foreground: #46eaee;
+  --accent: #3d558d;
+  --darker-fg: #3184ab;
 }
 
 body {
@@ -21,7 +21,7 @@ header {
 }
 
 .login-button {
-  background-color: var(--dark-fg);
+  background-color: var(--darker-fg);
   color: white;
   padding: 1em;
   max-width: 5em;
