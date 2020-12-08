@@ -55,11 +55,26 @@ export default class Guilds extends React.Component<any, any> {
         }
     }
 
+    private static cmpGuildsName(guildA: Guild, guildB: Guild): number {
+        if (guildA.name === guildB.name) {
+            return 0;
+        } else if (guildA.name > guildB.name) {
+            return -1;
+        } else {
+            return 1;
+        }
+    }
+
+    private static filterGuild(guild: Guild): boolean {
+        return guild.profiles.length > 1;
+    }
+
     private static async getGuilds(): Promise<Guild[]> {
         let res = await fetch(ENDPOINTS.GUILDS);
         let guilds: Guild[] = await res.json();
 
-        guilds = guilds.sort(Guilds.cmpGuilds);
+        guilds = guilds.filter(Guilds.filterGuild)
+            .sort(Guilds.cmpGuilds);
 
         if (guilds.length > MAX_GUILDS) {
             guilds = guilds.slice(0, MAX_GUILDS);
