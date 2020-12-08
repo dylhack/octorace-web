@@ -10,8 +10,11 @@
     background-color: var(--accent);
     max-width: 380px;
     max-height: 10vh;
+    min-height: 70px;
     padding: 1em;
-    margin: 0 1vw 3vh 1vw;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 1em;
     border-radius: 5px;
     border: solid 1px var(--foreground);
 }
