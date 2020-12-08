@@ -8,14 +8,22 @@
 
 .guild {
     background-color: var(--accent);
-    max-width: 90vw;
+    max-width: 380px;
     max-height: 10vh;
     padding: 1em;
-    margin: 0 3vw 3vh 3vw;
+    margin: 0 1vw 3vh 1vw;
+    border-radius: 5px;
+    border: solid 1px var(--foreground);
+}
+
+/* Small Mobile */
+@media (min-width: 320) {
+
 }
 
 .guild-icon {
     max-width: 51px;
+    border-radius: 50%;
 }
 
 .guild-details {
