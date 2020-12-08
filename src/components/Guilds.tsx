@@ -20,18 +20,22 @@ type FetchCallbackData = {
 };
 
 export default class Guilds extends React.Component<any, any> {
+    public static guilds: Map<number, Guild> = new Map();
+
     public render(): React.ReactNode {
         return (
             <Async promiseFn={Guilds.getGuilds}>
                 {({ data, error, isPending }: FetchCallbackData) => {
                     if (isPending) {
-                        return "Is pending...";
+                        return "Loading...";
                     }
                     if (error) {
+                        console.error(error);
                         return "Something went wrong"
                     }
                     let rendered: React.ReactNodeArray = [];
                     for (let guild of data) {
+                        Guilds.guilds.set(guild.id, guild);
                         rendered.push(Guilds.renderGuild(guild));
                     }
                     return rendered;
@@ -48,10 +52,12 @@ export default class Guilds extends React.Component<any, any> {
     private static renderGuild(guild: Guild): React.ReactNode {
         return (
             <div className={GUILD_CLASS}>
-                <img className={GUILD_ICON_CLASS} src={guild.icon_url}></img>
-                <h1 className={GUILD_NAME_CLASS}>{guild.name}</h1>
-                <p className={GUILD_COUNT_CLASS}>{guild.profiles.length}</p>
-                <img className={OPEN_GUILD_ICON} src={''}></img>
+                <a href={`/guild/${guild.id}}`}>
+                    <img className={GUILD_ICON_CLASS} src={guild.icon_url}/>
+                    <h1 className={GUILD_NAME_CLASS}>{guild.name}</h1>
+                    <p className={GUILD_COUNT_CLASS}>{guild.profiles.length}</p>
+                    <img className={OPEN_GUILD_ICON} src={'res/open.png'}></img>
+                </a>
             </div>
         );
     }
