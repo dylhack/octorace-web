@@ -5,6 +5,11 @@
   --darker-fg: #3184ab;
 }
 
+a {
+  text-decoration: none;
+  color: var(--foreground);
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
