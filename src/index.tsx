@@ -26,6 +26,7 @@ export const CONTENT_CLASS = 'content';
 export const LOGIN_BUTTON_CLASS = 'login-button';
 
 /* Guild CSS */
+export const GUILD_CLASS = 'guild';
 export const GUILD_ICON_CLASS = 'guild-icon';
 export const GUILD_NAME_CLASS = 'guild-name';
 export const GUILD_COUNT_CLASS = 'guild-count';
