@@ -76,8 +76,8 @@ export default class Guilds extends React.Component<any, any> {
         let guilds: Guild[] = await res.json();
 
         guilds = guilds.filter(Guilds.filterGuild)
-            .sort(Guilds.cmpGuilds)
-            .sort(Guilds.cmpGuildsName);
+            .sort(Guilds.cmpGuildsName)
+            .sort(Guilds.cmpGuilds);
 
         if (guilds.length > MAX_GUILDS) {
             guilds = guilds.slice(0, MAX_GUILDS);
