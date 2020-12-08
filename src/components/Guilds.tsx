@@ -2,6 +2,7 @@ import React from 'react';
 import '../css/index.css';
 import {
     ENDPOINTS,
+    GUILD_BODY_CLASS,
     GUILD_CLASS,
     GUILD_COUNT_CLASS,
     GUILD_DETAILS_CLASS,
@@ -90,11 +91,13 @@ export default class Guilds extends React.Component<any, any> {
         return (
             <div className={GUILD_CLASS}>
                 <a href={`/guild/${guild.id}}`}>
-                    <img className={GUILD_ICON_CLASS} src={guild.icon_url}/>
                     <img className={OPEN_GUILD_ICON} src={'res/open.png'}></img>
-                    <div className={GUILD_DETAILS_CLASS}>
-                        <h1 className={GUILD_NAME_CLASS}>{guild.name}</h1>
-                        <p className={GUILD_COUNT_CLASS}>{guild.profiles.length} Developers</p>
+                    <div className={GUILD_BODY_CLASS}>
+                        <img className={GUILD_ICON_CLASS} src={guild.icon_url} />
+                        <div className={GUILD_DETAILS_CLASS}>
+                            <h1 className={GUILD_NAME_CLASS}>{guild.name}</h1>
+                            <p className={GUILD_COUNT_CLASS}>{guild.profiles.length} Developers</p>
+                        </div>
                     </div>
                 </a>
             </div>

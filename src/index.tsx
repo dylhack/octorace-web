@@ -26,6 +26,7 @@ export const LOGIN_BUTTON_CLASS = 'login-button';
 export const GUILD_CLASS = 'guild';
 export const GUILD_ICON_CLASS = 'guild-icon';
 export const GUILD_DETAILS_CLASS = 'guild-details';
+export const GUILD_BODY_CLASS = 'guild-body';
 export const GUILD_NAME_CLASS = 'guild-name';
 export const GUILD_COUNT_CLASS = 'guild-count';
 export const OPEN_GUILD_ICON = 'guild-open';
