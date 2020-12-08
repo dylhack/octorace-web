@@ -49,9 +49,9 @@ export default class Guilds extends React.Component<any, any> {
         if (guildA.profiles.length === guildB.profiles.length) {
             return 0;
         } else if (guildA.profiles.length > guildB.profiles.length) {
-            return 1;
-        } else {
             return -1;
+        } else {
+            return 1;
         }
     }
 
