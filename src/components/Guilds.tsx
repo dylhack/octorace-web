@@ -2,13 +2,11 @@ import React from 'react';
 import '../css/index.css';
 import '../css/Guilds.css';
 import {
-    CONTENT_CLASS,
     ENDPOINTS,
     GUILD_CLASS,
     GUILD_COUNT_CLASS,
     GUILD_ICON_CLASS,
     GUILD_NAME_CLASS,
-    LISTINGS,
     OPEN_GUILD_ICON
 } from '..';
 import { Guild } from '../models/Guild';
