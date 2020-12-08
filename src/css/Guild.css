@@ -1,0 +1,31 @@
+:root {
+  --background: #3b3667;
+  --foreground: #46eaee;
+  --accent: #3d558d;
+  --darker-fg: #3184ab;
+}
+
+
+.guild {
+    background-color: var(--accent);
+    max-width: 80vw;
+    max-height: 10vh;
+    padding: 1em;
+}
+
+.guild-icon {
+    max-width: 51px;
+}
+
+.guild-name {
+    font-size: 1em;
+}
+
+.guild-count {
+
+}
+
+.guild-open {
+    max-width: 25px;
+    max-height: 25px;
+}
