@@ -13,13 +13,25 @@ import { Guild } from '../models/Guild';
 import { Async } from 'react-async';
 
 
+type FetchCallbackData = {
+    data: Guild[],
+    isPending: boolean,
+    error: Error,
+};
+
 export default class Guilds extends React.Component<any, any> {
     public render(): React.ReactNode {
         return (
             <Async promiseFn={Guilds.getGuilds}>
-                {(guilds: Guild[]) => {
+                {({ data, error, isPending }: FetchCallbackData) => {
+                    if (isPending) {
+                        return "Is pending...";
+                    }
+                    if (error) {
+                        return "Something went wrong"
+                    }
                     let rendered: React.ReactNodeArray = [];
-                    for (let guild of guilds) {
+                    for (let guild of data) {
                         rendered.push(Guilds.renderGuild(guild));
                     }
                     return rendered;
