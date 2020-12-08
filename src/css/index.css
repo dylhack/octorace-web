@@ -2,6 +2,7 @@
   --background: #3B3667;
   --foreground: #46EAEE;
   --accent: #3D558D;
+  --darker-fg: #3184AB;
 }
 
 body {
@@ -20,7 +21,7 @@ header {
 }
 
 .login-button {
-  background-color: var(--foreground);
+  background-color: var(--dark-fg);
   color: white;
   padding: 1em;
   max-width: 5em;
