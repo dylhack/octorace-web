@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Octorace from './components/Octorace';
-import Header from './components/Header';
 import './css/index.css';
 
 
@@ -18,8 +17,6 @@ export const MAX_GUILDS = 5;
 
 
 /* General CSS */
-export const LOGO_CLASS = 'logo';
-export const APP_NAME_CLASS = 'app-name';
 export const CONTENT_CLASS = 'content';
 
 /* Login CSS */
@@ -40,7 +37,6 @@ function main() {
   if (root) {
     ReactDOM.render(
       <React.StrictMode>
-        <Header />
         <Octorace/>
       </React.StrictMode>,
       root,
