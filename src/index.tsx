@@ -7,11 +7,23 @@ import { Guild } from './models/Guild';
 import './css/index.css';
 
 
+/* Configurable */
+export const OAUTH = 'oauth'
+
+
+/* General CSS */
 export const LOGO_CLASS = 'logo';
 export const APP_NAME_CLASS = 'app-name';
 export const CONTENT_CLASS = 'content';
+
+/* Login CSS */
+export const LOGIN_BUTTON_CLASS = 'login-button';
+
+/* Guild CSS */
 export const GUILD_ICON_CLASS = 'guild-icon';
-export const DATA: Guild[] = example;
+export const GUILD_NAME_CLASS = 'guild-name';
+export const GUILD_COUNT_CLASS = 'guild-count';
+export const OPEN_GUILD_ICON = 'guild-open';
 
 
 function main() {
