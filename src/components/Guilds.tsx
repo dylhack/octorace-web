@@ -92,7 +92,7 @@ export default class Guilds extends React.Component<any, any> {
                 <a href={`/guild/${guild.id}}`}>
                     <img className={GUILD_ICON_CLASS} src={guild.icon_url}/>
                     <h1 className={GUILD_NAME_CLASS}>{guild.name}</h1>
-                    <p className={GUILD_COUNT_CLASS}>{guild.profiles.length}</p>
+                    <p className={GUILD_COUNT_CLASS}>{guild.profiles.length} Developers</p>
                     <img className={OPEN_GUILD_ICON} src={'res/open.png'}></img>
                 </a>
             </div>

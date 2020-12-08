@@ -20,6 +20,7 @@
 
 .guild-name {
     font-size: 1em;
+    display: inline-block;
 }
 
 .guild-count {
