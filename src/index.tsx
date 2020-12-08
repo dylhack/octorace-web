@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Octorace from './components/Octorace';
 import Header from './components/Header';
-import example from './guilds.json';
 import { Guild } from './models/Guild';
 import './css/index.css';
 
