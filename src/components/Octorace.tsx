@@ -11,7 +11,7 @@ import {
 
 export default class Octorace extends React.Component<any, any> {
     public render() {
-        let loggedIn = (document.cookie.length !== 0);
+        let loggedIn = document.cookie.match('discord_token');
         return (
             <Router>
                 <Switch>
