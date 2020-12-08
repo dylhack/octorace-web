@@ -14,13 +14,10 @@ export default class Login extends React.Component<any, any> {
 
     public render(): React.ReactNode {
         return (
-            <div className={CONTENT_CLASS}>
-                <input type="button" value="LOGIN"
-                    className={LOGIN_BUTTON_CLASS}
-                    onClick={this.onClick}>
-
-                </input>
-            </div>
+            <input type="button" value="LOGIN"
+                className={LOGIN_BUTTON_CLASS}
+                onClick={this.onClick}>
+            </input>
         )
     }
 }
