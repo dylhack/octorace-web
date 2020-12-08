@@ -8,10 +8,10 @@
 
 .guild {
     background-color: var(--accent);
-    max-width: 80vw;
+    max-width: 90vw;
     max-height: 10vh;
     padding: 1em;
-    margin: 0 10vw 3vh 10vw;
+    margin: 0 3vw 3vh 3vw;
 }
 
 .guild-icon {
