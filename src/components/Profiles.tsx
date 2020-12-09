@@ -27,8 +27,8 @@ class Profiles extends React.Component<any, any> {
 
     private static renderProfile(profile: Profile): React.ReactNode {
         return (
-            <a href={`https://github.com/${profile.github}`}>
-                <div className={LIST_CLASS}>
+            <div className={LIST_CLASS}>
+                <a href={`https://github.com/${profile.github}`}>
                     <img className={LIST_ICON_CLASS} src={profile.avatar_url} />
                     <div className={LIST_DETAILS_CLASS}>
                         <h1 className={LIST_NAME_CLASS}>{profile.tag}</h1>
@@ -36,8 +36,8 @@ class Profiles extends React.Component<any, any> {
                             {profile.contributions}
                         </p>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         );
     }
 
@@ -58,7 +58,7 @@ class Profiles extends React.Component<any, any> {
 
         return (
             <div>
-                { Guilds.renderGuildSimple(guild)}
+                { Guilds.renderGuild(guild) }
                 { guild.profiles.map(Profiles.renderProfile)}
             </div>
         )

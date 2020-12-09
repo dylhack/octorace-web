@@ -47,25 +47,17 @@ export default class Guilds extends React.Component<any, any> {
 
     public static renderGuild(guild: Guild): React.ReactNode {
         return (
-            <a href={`/guild/${guild.id}`}>
-                <div className={LIST_CLASS}>
+            <div className={LIST_CLASS}>
+                <a href={`/guild/${guild.id}`}>
                     <img className={OPEN_LIST_ICON} src={'/res/open.png'}></img>
-                    {Guilds.renderGuildSimple(guild)}
-                </div>
-            </a>
-        );
-    }
-
-    public static renderGuildSimple(guild: Guild): React.ReactNode {
-        return (
-            <div className={LIST_BODY_CLASS}>
-                <img className={LIST_ICON_CLASS} src={guild.icon_url} />
-                <div className={LIST_DETAILS_CLASS}>
-                    <h1 className={LIST_NAME_CLASS}>{guild.name}</h1>
-                    <p className={LIST_COUNT_CLASS}>
-                        {guild.profiles.length} Developers
-                            </p>
-                </div>
+                    <div className={LIST_BODY_CLASS}>
+                        <img className={LIST_ICON_CLASS} src={guild.icon_url} />
+                        <div className={LIST_DETAILS_CLASS}>
+                            <h1 className={LIST_NAME_CLASS}>{guild.name}</h1>
+                            <p className={LIST_COUNT_CLASS}>{guild.profiles.length} Developers</p>
+                        </div>
+                    </div>
+                </a>
             </div>
         );
     }
