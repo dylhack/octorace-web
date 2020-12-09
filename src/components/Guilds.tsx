@@ -45,11 +45,13 @@ export default class Guilds extends React.Component<any, any> {
         );
     }
 
-    public static renderGuild(guild: Guild): React.ReactNode {
+    public static renderGuild(guild: Guild, openIco=true): React.ReactNode {
         return (
             <div className={LIST_CLASS}>
                 <a href={`/guild/${guild.id}`}>
-                    <img className={OPEN_LIST_ICON} src={'/res/open.png'}></img>
+                    { openIco
+                        ? <img className={OPEN_LIST_ICON} src={'/res/open.png'}/>
+                        : null}
                     <div className={LIST_BODY_CLASS}>
                         <img className={LIST_ICON_CLASS} src={guild.icon_url} />
                         <div className={LIST_DETAILS_CLASS}>

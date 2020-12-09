@@ -58,7 +58,7 @@ class Profiles extends React.Component<any, any> {
 
         return (
             <div>
-                { Guilds.renderGuild(guild) }
+                { Guilds.renderGuild(guild, false) }
                 { guild.profiles.map(Profiles.renderProfile)}
             </div>
         )
