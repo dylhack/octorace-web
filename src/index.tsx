@@ -13,7 +13,7 @@ export const ENDPOINTS = {
 
 
 /* Configurable */
-export const MAX_GUILDS = 5;
+export const MAX_GUILDS = 15;
 
 
 /* General CSS */
@@ -38,7 +38,7 @@ function main() {
   if (root) {
     ReactDOM.render(
       <React.StrictMode>
-        <Octorace/>
+        <Octorace />
       </React.StrictMode>,
       root,
     );
