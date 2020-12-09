@@ -26,7 +26,7 @@ export default class GuildStore {
 
 
     public static storeGuild(guild: Guild) {
-        let store = this.getGuildStore();
+        let store = GuildStore.getGuildStore();
 
         store.guilds.push(guild);
 
