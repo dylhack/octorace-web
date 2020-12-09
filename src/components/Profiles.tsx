@@ -41,6 +41,8 @@ export default class Profiles extends React.Component<any, any> {
             return Profiles.renderError(id);
         }
 
+        console.debug(`Loading profiles for ${id}`);
+
         let guild = Guilds.guilds.get(id);
 
         if (!guild) {
