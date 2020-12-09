@@ -45,12 +45,12 @@ export default class Guilds extends React.Component<any, any> {
         );
     }
 
-    public static renderGuild(guild: Guild, openIco=true): React.ReactNode {
+    public static renderGuild(guild: Guild, openIco = true): React.ReactNode {
         return (
-            <div className={LIST_CLASS}>
-                <a href={`/guild/${guild.id}`}>
-                    { openIco
-                        ? <img className={OPEN_LIST_ICON} src={'/res/open.png'}/>
+            <a href={`/guild/${guild.id}`}>
+                <div className={LIST_CLASS}>
+                    {openIco
+                        ? <img className={OPEN_LIST_ICON} src={'/res/open.png'} />
                         : null}
                     <div className={LIST_BODY_CLASS}>
                         <img className={LIST_ICON_CLASS} src={guild.icon_url} />
@@ -59,8 +59,8 @@ export default class Guilds extends React.Component<any, any> {
                             <p className={LIST_COUNT_CLASS}>{guild.profiles.length} Developers</p>
                         </div>
                     </div>
-                </a>
-            </div>
+                </div>
+            </a>
         );
     }
 
