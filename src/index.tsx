@@ -31,6 +31,14 @@ export const GUILD_NAME_CLASS = 'guild-name';
 export const GUILD_COUNT_CLASS = 'guild-count';
 export const OPEN_GUILD_ICON = 'guild-open';
 
+/* Profiles CSS */
+export const PROFILE_CLASS = 'profile';
+export const PROFILE_NAME_CLASS = 'profile-name';
+export const PROFILE_DETAILS_CLASS = 'profile-details';
+export const PROFILE_AVATAR_CLASS = 'profile-avatar';
+export const PROFILE_CONTRIBUTIONS_CLASS = 'profile-contributions';
+
+
 
 function main() {
   const root = document.getElementById('root');

@@ -1,6 +1,6 @@
 import React from 'react';
 import Guilds from './Guilds';
-import Guild from './Guild';
+import Profiles from './Profiles';
 import Login from './Login';
 import {
     BrowserRouter as Router,
@@ -18,8 +18,8 @@ export default class Octorace extends React.Component<any, any> {
                     <Route exact path="/">
                         { loggedIn ? <Guilds/> : <Login/> }
                     </Route>
-                    <Route exact path="/guild/:guildid">
-                        { loggedIn ? <Guild/> : <Login/> }
+                    <Route exact path="/guild/:id" component={Profiles}>
+                        { loggedIn ? <Profiles/> : <Login/> }
                     </Route>
                 </Switch>
             </Router>
