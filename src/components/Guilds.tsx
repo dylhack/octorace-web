@@ -2,14 +2,14 @@ import React from 'react';
 import '../css/index.css';
 import {
     ENDPOINTS,
-    GUILD_BODY_CLASS,
-    GUILD_CLASS,
-    GUILD_COUNT_CLASS,
-    GUILD_DETAILS_CLASS,
-    GUILD_ICON_CLASS,
-    GUILD_NAME_CLASS,
+    LIST_BODY_CLASS,
+    LIST_CLASS,
+    LIST_COUNT_CLASS,
+    LIST_DETAILS_CLASS,
+    LIST_ICON_CLASS,
+    LIST_NAME_CLASS,
     MAX_GUILDS,
-    OPEN_GUILD_ICON
+    OPEN_LIST_ICON
 } from '..';
 import { Guild } from '../models/Guild';
 import { Async } from 'react-async';
@@ -90,14 +90,14 @@ export default class Guilds extends React.Component<any, any> {
 
     private static renderGuild(guild: Guild): React.ReactNode {
         return (
-            <div className={GUILD_CLASS}>
+            <div className={LIST_CLASS}>
                 <a href={`/guild/${guild.id}`}>
-                    <img className={OPEN_GUILD_ICON} src={'res/open.png'}></img>
-                    <div className={GUILD_BODY_CLASS}>
-                        <img className={GUILD_ICON_CLASS} src={guild.icon_url} />
-                        <div className={GUILD_DETAILS_CLASS}>
-                            <h1 className={GUILD_NAME_CLASS}>{guild.name}</h1>
-                            <p className={GUILD_COUNT_CLASS}>{guild.profiles.length} Developers</p>
+                    <img className={OPEN_LIST_ICON} src={'res/open.png'}></img>
+                    <div className={LIST_BODY_CLASS}>
+                        <img className={LIST_ICON_CLASS} src={guild.icon_url} />
+                        <div className={LIST_DETAILS_CLASS}>
+                            <h1 className={LIST_NAME_CLASS}>{guild.name}</h1>
+                            <p className={LIST_COUNT_CLASS}>{guild.profiles.length} Developers</p>
                         </div>
                     </div>
                 </a>

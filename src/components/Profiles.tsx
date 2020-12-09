@@ -1,9 +1,14 @@
-import Guilds from './Guilds';
 import React from 'react';
 import { withRouter } from 'react-router';
 import '../css/index.css';
 import '../css/Guild.css';
-import { CONTENT_CLASS, PROFILE_AVATAR_CLASS, PROFILE_CLASS, PROFILE_CONTRIBUTIONS_CLASS, PROFILE_DETAILS_CLASS, PROFILE_NAME_CLASS } from '..';
+import {
+    LIST_CLASS,
+    LIST_NAME_CLASS,
+    LIST_ICON_CLASS,
+    LIST_DETAILS_CLASS,
+    LIST_COUNT_CLASS,
+} from '..';
 import { Profile } from '../models/Profile';
 import GuildStore from '../models/GuildStore';
 
@@ -21,12 +26,12 @@ class Profiles extends React.Component<any, any> {
 
     private static renderProfile(profile: Profile): React.ReactNode {
         return (
-            <div className={PROFILE_CLASS}>
+            <div className={LIST_CLASS}>
                 <a href={`https://github.com/${profile.github}`}>
-                    <img className={PROFILE_AVATAR_CLASS} src={profile.avatar_url} />
-                    <div className={PROFILE_DETAILS_CLASS}>
-                        <h1 className={PROFILE_NAME_CLASS}>{profile.tag}</h1>
-                        <p className={PROFILE_CONTRIBUTIONS_CLASS}>
+                    <img className={LIST_ICON_CLASS} src={profile.avatar_url} />
+                    <div className={LIST_DETAILS_CLASS}>
+                        <h1 className={LIST_NAME_CLASS}>{profile.tag}</h1>
+                        <p className={LIST_COUNT_CLASS}>
                             {profile.contributions}
                         </p>
                     </div>
