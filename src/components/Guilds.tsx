@@ -68,6 +68,10 @@ export default class Guilds extends React.Component<any, any> {
         }
     }
 
+    private static storeGuild(guild: Guild) {
+        Guilds.guilds.set(guild.id, guild);
+    }
+
     private static filterGuild(guild: Guild): boolean {
         return guild.profiles.length > 1;
     }
@@ -79,6 +83,8 @@ export default class Guilds extends React.Component<any, any> {
         guilds = guilds.filter(Guilds.filterGuild)
             .sort(Guilds.cmpGuildsName)
             .sort(Guilds.cmpGuilds);
+
+        guilds.forEach(Guilds.storeGuild);
 
         if (guilds.length > MAX_GUILDS) {
             guilds = guilds.slice(0, MAX_GUILDS);
