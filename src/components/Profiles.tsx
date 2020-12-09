@@ -1,6 +1,6 @@
 import Guilds from './Guilds';
 import React from 'react';
-import { useParams } from 'react-router';
+import { withRouter } from 'react-router';
 import '../css/index.css';
 import '../css/Guild.css';
 import { CONTENT_CLASS, PROFILE_AVATAR_CLASS, PROFILE_CLASS, PROFILE_CONTRIBUTIONS_CLASS, PROFILE_DETAILS_CLASS, PROFILE_NAME_CLASS } from '..';
@@ -11,7 +11,7 @@ type GuildParams = {
     id?: number,
 }
 
-export default class Profiles extends React.Component<any, any> {
+class Profiles extends React.Component<any, any> {
     private static renderError(guildID?: number) {
         return (
             <p>Failed to load users in guild {guildID || 'undefined'}</p>
@@ -57,3 +57,5 @@ export default class Profiles extends React.Component<any, any> {
         )
     }
 }
+
+export default withRouter(Profiles);
