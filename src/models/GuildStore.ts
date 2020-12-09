@@ -34,7 +34,7 @@ export default class GuildStore {
     }
 
     private save() {
-        let serialized = JSON.stringify(this);
+        let serialized = JSON.stringify(this.guilds);
         sessionStorage.setItem(GuildStore.GUILD_STORE, serialized);
     }
 
