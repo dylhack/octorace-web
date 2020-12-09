@@ -5,6 +5,7 @@ import '../css/index.css';
 import '../css/Guild.css';
 import { CONTENT_CLASS, PROFILE_AVATAR_CLASS, PROFILE_CLASS, PROFILE_CONTRIBUTIONS_CLASS, PROFILE_DETAILS_CLASS, PROFILE_NAME_CLASS } from '..';
 import { Profile } from '../models/Profile';
+import GuildStore from '../models/GuildStore';
 
 
 type GuildParams = {
@@ -41,9 +42,9 @@ class Profiles extends React.Component<any, any> {
             return Profiles.renderError(id);
         }
 
-        console.debug(`Loading profiles for ${id}`);
+        console.debug(`Loading profiles for '${id}'`);
 
-        let guild = Guilds.guilds.get(id);
+        let guild = GuildStore.getGuild(id);
 
         if (!guild) {
             return Profiles.renderError(id);

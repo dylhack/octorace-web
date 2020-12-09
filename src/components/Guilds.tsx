@@ -13,6 +13,7 @@ import {
 } from '..';
 import { Guild } from '../models/Guild';
 import { Async } from 'react-async';
+import GuildStore from '../models/GuildStore';
 
 
 type FetchCallbackData = {
@@ -22,8 +23,6 @@ type FetchCallbackData = {
 };
 
 export default class Guilds extends React.Component<any, any> {
-    public static guilds: Map<number, Guild> = new Map();
-
     public render(): React.ReactNode {
         return (
             <Async promiseFn={Guilds.getGuilds}>
@@ -36,8 +35,8 @@ export default class Guilds extends React.Component<any, any> {
                         return "Something went wrong"
                     }
                     let rendered: React.ReactNodeArray = [];
+
                     for (let guild of data) {
-                        Guilds.guilds.set(guild.id, guild);
                         rendered.push(Guilds.renderGuild(guild));
                     }
                     return rendered;
@@ -68,10 +67,6 @@ export default class Guilds extends React.Component<any, any> {
         }
     }
 
-    private static storeGuild(guild: Guild) {
-        Guilds.guilds.set(guild.id, guild);
-    }
-
     private static filterGuild(guild: Guild): boolean {
         return guild.profiles.length > 1;
     }
@@ -84,7 +79,7 @@ export default class Guilds extends React.Component<any, any> {
             .sort(Guilds.cmpGuildsName)
             .sort(Guilds.cmpGuilds);
 
-        guilds.forEach(Guilds.storeGuild);
+        guilds.forEach(GuildStore.storeGuild);
 
         if (guilds.length > MAX_GUILDS) {
             guilds = guilds.slice(0, MAX_GUILDS);
@@ -96,7 +91,7 @@ export default class Guilds extends React.Component<any, any> {
     private static renderGuild(guild: Guild): React.ReactNode {
         return (
             <div className={GUILD_CLASS}>
-                <a href={`/guild/${guild.id}}`}>
+                <a href={`/guild/${guild.id}`}>
                     <img className={OPEN_GUILD_ICON} src={'res/open.png'}></img>
                     <div className={GUILD_BODY_CLASS}>
                         <img className={GUILD_ICON_CLASS} src={guild.icon_url} />
