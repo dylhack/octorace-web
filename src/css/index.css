@@ -1,7 +1,13 @@
 :root {
-  --background: #3B3667;
-  --foreground: #46EAEE;
-  --accent: #3D558D;
+  --background: #3b3667;
+  --foreground: #46eaee;
+  --accent: #3d558d;
+  --darker-fg: #3184ab;
+}
+
+a {
+  text-decoration: none;
+  color: var(--foreground);
 }
 
 body {
@@ -10,16 +16,7 @@ body {
 }
 
 header {
-  max-width: 300px;
-  margin: auto;
-}
-
-.content {
-  max-width: 300px;
-  margin: auto;
-}
-
-
-@media (min-width: 1000px) {
-
+  max-width: 100px;
+  margin-right: auto;
+  margin-left: auto;
 }

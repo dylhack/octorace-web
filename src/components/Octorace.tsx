@@ -1,6 +1,6 @@
 import React from 'react';
 import Guilds from './Guilds';
-import Guild from './Guild';
+import Profiles from './Profiles';
 import Login from './Login';
 import {
     BrowserRouter as Router,
@@ -11,15 +11,15 @@ import {
 
 export default class Octorace extends React.Component<any, any> {
     public render() {
-        let loggedIn = (document.cookie.length !== 0);
+        let loggedIn = document.cookie.match('discord_token');
         return (
             <Router>
                 <Switch>
                     <Route exact path="/">
                         { loggedIn ? <Guilds/> : <Login/> }
                     </Route>
-                    <Route exact path="/guild/:guildid">
-                        { loggedIn ? <Guild/> : <Login/> }
+                    <Route path="/guild/:id" component={Profiles}>
+                        { loggedIn ? <Profiles/> : <Login/> }
                     </Route>
                 </Switch>
             </Router>
