@@ -35,6 +35,7 @@ export default class Profiles extends React.Component<any, any> {
     }
 
     public render(): React.ReactNode {
+        console.debug(this.props);
         let { id } = this.props.match.params as GuildParams;
 
         if (!id) {
