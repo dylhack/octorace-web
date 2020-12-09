@@ -23,7 +23,7 @@ class Profiles extends React.Component<any, any> {
         return (
             <div className={PROFILE_CLASS}>
                 <a href={`https://github.com/${profile.github}`}>
-                    <img className={PROFILE_AVATAR_CLASS} />
+                    <img className={PROFILE_AVATAR_CLASS} src={profile.avatar_url} />
                     <div className={PROFILE_DETAILS_CLASS}>
                         <h1 className={PROFILE_NAME_CLASS}>{profile.tag}</h1>
                         <p className={PROFILE_CONTRIBUTIONS_CLASS}>
