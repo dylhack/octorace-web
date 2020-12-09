@@ -11,6 +11,7 @@ import {
 } from '..';
 import { Profile } from '../models/Profile';
 import GuildStore from '../models/GuildStore';
+import Guilds from './Guilds';
 
 
 type GuildParams = {
@@ -57,6 +58,7 @@ class Profiles extends React.Component<any, any> {
 
         return (
             <div>
+                { Guilds.renderGuild(guild) }
                 { guild.profiles.map(Profiles.renderProfile)}
             </div>
         )

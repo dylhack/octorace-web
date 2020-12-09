@@ -45,6 +45,23 @@ export default class Guilds extends React.Component<any, any> {
         );
     }
 
+    public static renderGuild(guild: Guild): React.ReactNode {
+        return (
+            <div className={LIST_CLASS}>
+                <a href={`/guild/${guild.id}`}>
+                    <img className={OPEN_LIST_ICON} src={'res/open.png'}></img>
+                    <div className={LIST_BODY_CLASS}>
+                        <img className={LIST_ICON_CLASS} src={guild.icon_url} />
+                        <div className={LIST_DETAILS_CLASS}>
+                            <h1 className={LIST_NAME_CLASS}>{guild.name}</h1>
+                            <p className={LIST_COUNT_CLASS}>{guild.profiles.length} Developers</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        );
+    }
+
     private static cmpGuilds(guildA: Guild, guildB: Guild): number {
         if (guildA.profiles.length === guildB.profiles.length) {
             return 0;
@@ -88,20 +105,4 @@ export default class Guilds extends React.Component<any, any> {
         return guilds;
     }
 
-    private static renderGuild(guild: Guild): React.ReactNode {
-        return (
-            <div className={LIST_CLASS}>
-                <a href={`/guild/${guild.id}`}>
-                    <img className={OPEN_LIST_ICON} src={'res/open.png'}></img>
-                    <div className={LIST_BODY_CLASS}>
-                        <img className={LIST_ICON_CLASS} src={guild.icon_url} />
-                        <div className={LIST_DETAILS_CLASS}>
-                            <h1 className={LIST_NAME_CLASS}>{guild.name}</h1>
-                            <p className={LIST_COUNT_CLASS}>{guild.profiles.length} Developers</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        );
-    }
 }
