@@ -23,13 +23,13 @@ export const CONTENT_CLASS = 'content';
 export const LOGIN_BUTTON_CLASS = 'login-button';
 
 /* Guild CSS */
-export const LIST_CLASS = 'guild';
-export const LIST_ICON_CLASS = 'guild-icon';
-export const LIST_DETAILS_CLASS = 'guild-details';
-export const LIST_BODY_CLASS = 'guild-body';
-export const LIST_NAME_CLASS = 'guild-name';
-export const LIST_COUNT_CLASS = 'guild-count';
-export const OPEN_LIST_ICON = 'guild-open';
+export const LIST_CLASS = 'list-item';
+export const LIST_ICON_CLASS = 'list-icon';
+export const LIST_DETAILS_CLASS = 'list-item-details';
+export const LIST_BODY_CLASS = 'list-item-body';
+export const LIST_NAME_CLASS = 'list-item-name';
+export const LIST_COUNT_CLASS = 'list-count';
+export const OPEN_LIST_ICON = 'list-open';
 
 
 function main() {

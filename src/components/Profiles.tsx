@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import '../css/index.css';
-import '../css/Guild.css';
+import '../css/Lists.css';
 import {
     LIST_CLASS,
     LIST_NAME_CLASS,
@@ -29,7 +29,7 @@ class Profiles extends React.Component<any, any> {
         return (
             <a href={`https://github.com/${profile.github}`}>
                 <div className={LIST_CLASS}>
-                    <img className={LIST_ICON_CLASS} src={profile.avatar_url} />
+                    <img alt="User's profile" className={LIST_ICON_CLASS} src={profile.avatar_url} />
                     <div className={LIST_DETAILS_CLASS}>
                         <h1 className={LIST_NAME_CLASS}>{profile.tag}</h1>
                         <p className={LIST_COUNT_CLASS}>
