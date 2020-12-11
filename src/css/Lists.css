@@ -1,0 +1,47 @@
+:root {
+  --background: #3b3667;
+  --foreground: #46eaee;
+  --accent: #3d558d;
+  --darker-fg: #3184ab;
+}
+
+
+.list-item {
+    background-color: var(--accent);
+    max-width: 380px;
+    max-height: 65px;
+    min-height: 50px;
+    padding: 1em;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    border: solid 1px var(--foreground);
+}
+
+.list-icon {
+    max-width: 15%;
+    border-radius: 50%;
+}
+
+.list-item-details {
+    display: inline-block;
+    padding-left: 1em;
+}
+
+.list-item-name {
+    font-size: 1em;
+    margin-bottom: 0;
+    display: inline-block;
+}
+
+.list-count {
+    margin-top: 0.5em;
+}
+
+.list-open {
+    max-width: 25px;
+    max-height: 25px;
+    float: right;
+    clear: right;
+}
