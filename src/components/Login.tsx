@@ -1,5 +1,5 @@
 import React from 'react';
-import { LOGIN_BUTTON_CLASS, ENDPOINTS } from '../index'
+import { LOGIN_BUTTON_CLASS, ENDPOINTS } from '../constants';
 import '../css/index.css';
 import '../css/Login.css';
 
