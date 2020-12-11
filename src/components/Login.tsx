@@ -6,7 +6,6 @@ import '../css/Login.css';
 
 export default class Login extends React.Component<any, any> {
     private onClick(_: React.MouseEvent) {
-        // Go-to oauth page
         window.location.replace(
             `/${ENDPOINTS.OAUTH}`,
         );

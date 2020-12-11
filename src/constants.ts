@@ -1,7 +1,7 @@
 /* Endpoints */
 export const ENDPOINTS = {
   USER: '/api/user',
-  FRIENDS: '/api/friends',
+  GUILDS: '/api/guilds',
   OAUTH: 'oauth',
 };
 
@@ -19,8 +19,12 @@ export const LOGIN_BUTTON_CLASS = 'login-button';
  * @const LIST_DESC_CLASS The description of the list item
  * @const LIST_DETAILS_CLASS A div grouping the list name and body
  */
-export const LIST_CLASS = 'list-item';
-export const LIST_ICON_CLASS = 'list-icon';
-export const LIST_NAME_CLASS = 'list-item-name';
-export const LIST_DESC_CLASS = 'list-item-description';
+export const LIST_CLASS         = 'list-item';
+export const LIST_ICON_CLASS    = 'list-icon';
+export const LIST_NAME_CLASS    = 'list-item-name';
+export const LIST_DESC_CLASS    = 'list-item-description';
 export const LIST_DETAILS_CLASS = 'list-item-details';
+export const LIST_BODY_CLASS    = 'list-item-body';
+
+export const OPEN_GUILD_CLASS   = 'open-guild';
+export const STATE_CLASS        = 'state';
