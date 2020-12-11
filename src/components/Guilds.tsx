@@ -28,6 +28,7 @@ export default class Guilds extends React.Component<any, any> {
                         return Render.state('Something went wrong');
                     }
                     if (data) {
+                        console.debug(typeof data);
                         console.debug(data);
                         return data.map(Render.guild);
                     }
