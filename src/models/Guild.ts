@@ -1,7 +1,7 @@
 import { Profile } from './Profile';
 
 
-export type Guild  = {
+export type Guild = {
     name: string,
     id: number,
     icon_url: string,

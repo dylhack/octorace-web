@@ -1,67 +1,52 @@
 import React from 'react';
+import { Async } from 'react-async';
 import { withRouter } from 'react-router';
-import '../css/index.css';
-import '../css/Lists.css';
-import {
-    LIST_CLASS,
-    LIST_NAME_CLASS,
-    LIST_ICON_CLASS,
-    LIST_DETAILS_CLASS,
-    LIST_COUNT_CLASS,
-} from '..';
-import { Profile } from '../models/Profile';
-import GuildStore from '../models/GuildStore';
-import Guilds from './Guilds';
+import { Guild } from '../models/Guild';
+import Render from '../util/Render';
+import Store from '../util/Store';
 
 
-type GuildParams = {
-    id?: number,
+type ProfilesParam = {
+    id?: number;
 }
 
-class Profiles extends React.Component<any, any> {
-    private static renderError(guildID?: number) {
-        return (
-            <p>Failed to load users in guild {guildID || 'undefined'}</p>
-        );
-    }
+type ProfilesFetch = {
+    isPending: boolean,
+    error?: Error,
+    data?: Guild,
+}
 
-    private static renderProfile(profile: Profile): React.ReactNode {
-        return (
-            <a href={`https://github.com/${profile.github}`}>
-                <div className={LIST_CLASS}>
-                    <img alt="User's profile" className={LIST_ICON_CLASS} src={profile.avatar_url} />
-                    <div className={LIST_DETAILS_CLASS}>
-                        <h1 className={LIST_NAME_CLASS}>{profile.tag}</h1>
-                        <p className={LIST_COUNT_CLASS}>
-                            {profile.contributions}
-                        </p>
-                    </div>
-                </div>
-            </a>
-        );
-    }
-
+class Profiles extends React.Component<any, any>{
     public render(): React.ReactNode {
-        let { id } = this.props.match.params as GuildParams;
+        const { id } = this.props.match.params as ProfilesParam;
 
         if (!id) {
-            return Profiles.renderError(id);
+            console.error("An ID wasn't provided in the URL path.");
+            console.error(`ID == ${id}`);
+            return Render.state("An ID wasn't provided in the URL path.");
         }
 
         console.debug(`Loading profiles for '${id}'`);
-
-        let guild = GuildStore.getGuild(id);
-
-        if (!guild) {
-            return Profiles.renderError(id);
-        }
+        const getGuilds = async () => await Store.getGuild(id as number);
 
         return (
-            <div>
-                { Guilds.renderGuild(guild, false)}
-                { guild.profiles.map(Profiles.renderProfile)}
-            </div>
-        )
+            <Async promiseFn={getGuilds}>
+                {({isPending, data, error}: ProfilesFetch) => {
+                    if (isPending) {
+                        return Render.state('Loading...');
+                    }
+                    if (error) {
+                        console.error(error);
+                        return Render.state('Something went wrong');
+                    }
+                    if (data) {
+                        return data.profiles.map(Render.profile);
+                    }
+                    console.debug('How did we get here?');
+                    return Render.state('How did we get here?');
+                }}
+            </Async>
+        );
     }
 }
 

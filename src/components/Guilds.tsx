@@ -1,83 +1,39 @@
 import React from 'react';
-import '../css/index.css';
-import {
-    ENDPOINTS,
-    LIST_BODY_CLASS,
-    LIST_CLASS,
-    LIST_COUNT_CLASS,
-    LIST_DETAILS_CLASS,
-    LIST_ICON_CLASS,
-    LIST_NAME_CLASS,
-    MAX_GUILDS,
-    OPEN_LIST_ICON
-} from '..';
-import { Guild } from '../models/Guild';
+import Store from '../util/Store';
 import { Async } from 'react-async';
-import GuildStore from '../cache/GuildStore';
-import Util from '../util/Util';
+import { Guild } from '../models/Guild';
+import Render from '../util/Render';
 
 
-type FetchCallbackData = {
-    data: Guild[],
+type GuildsFetch = {
     isPending: boolean,
-    error: Error,
-};
+    error?: Error,
+    data: Guild[]
+}
 
+/**
+ * @class Guilds
+ * Represents the guilds page when the user successfully logs in.
+ */
 export default class Guilds extends React.Component<any, any> {
-    public render(): React.ReactNode {
+    public render() {
         return (
-            <Async promiseFn={Guilds.getGuilds}>
-                {({ data, error, isPending }: FetchCallbackData) => {
+            <Async promiseFn={Store.getGuilds}>
+                {({isPending, data, error}: GuildsFetch) => {
                     if (isPending) {
-                        return "Loading...";
+                        return Render.state('Loading...');
                     }
                     if (error) {
                         console.error(error);
-                        return "Something went wrong"
+                        return Render.state('Something went wrong');
                     }
-                    let rendered: React.ReactNodeArray = [];
-
-                    for (let guild of data) {
-                        rendered.push(Guilds.renderGuild(guild));
+                    if (data) {
+                        return data.map(Render.guild);
                     }
-                    return rendered;
+                    console.debug('How did we get here?');
+                    return Render.state('How did we get here?');
                 }}
             </Async>
-        );
+        )
     }
-
-    public static renderGuild(guild: Guild, openIco = true): React.ReactNode {
-        return (
-            <a href={`/guild/${guild.id}`}>
-                <div className={LIST_CLASS}>
-                    {openIco
-                        ? <img alt="Open guild" className={OPEN_LIST_ICON} src={'/res/open.png'} />
-                        : null}
-                    <div className={LIST_BODY_CLASS}>
-                        <img alt="Guild icon" className={LIST_ICON_CLASS} src={guild.icon_url} />
-                        <div className={LIST_DETAILS_CLASS}>
-                            <h1 className={LIST_NAME_CLASS}>{guild.name}</h1>
-                            <p className={LIST_COUNT_CLASS}>{guild.profiles.length} Developers</p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        );
-    }
-
-    private static async getGuilds(): Promise<Guild[]> {
-        let res = await fetch(ENDPOINTS.GUILDS);
-        let guilds: Guild[] = await res.json();
-
-        guilds = Util.organizeGuilds(guilds);
-
-        guilds.forEach(GuildStore.storeGuild);
-
-        if (guilds.length > MAX_GUILDS) {
-            guilds = guilds.slice(0, MAX_GUILDS);
-        }
-
-        return guilds;
-    }
-
 }
