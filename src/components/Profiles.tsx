@@ -40,6 +40,7 @@ class Profiles extends React.Component<any, any>{
                         return Render.state('Something went wrong');
                     }
                     if (data) {
+                        console.debug(data);
                         return data.profiles.map(Render.profile);
                     }
                     console.debug('How did we get here?');
