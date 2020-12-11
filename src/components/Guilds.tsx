@@ -13,7 +13,8 @@ import {
 } from '..';
 import { Guild } from '../models/Guild';
 import { Async } from 'react-async';
-import GuildStore from '../models/GuildStore';
+import GuildStore from '../cache/GuildStore';
+import Util from '../util/Util';
 
 
 type FetchCallbackData = {
@@ -64,39 +65,11 @@ export default class Guilds extends React.Component<any, any> {
         );
     }
 
-    private static cmpGuilds(guildA: Guild, guildB: Guild): number {
-        if (guildA.profiles.length === guildB.profiles.length) {
-            return 0;
-        } else if (guildA.profiles.length > guildB.profiles.length) {
-            return -1;
-        } else {
-            return 1;
-        }
-    }
-
-    private static cmpGuildsName(guildA: Guild, guildB: Guild): number {
-        let nameA = guildA.name.toUpperCase();
-        let nameB = guildB.name.toUpperCase();
-        if (nameA === nameB) {
-            return 0;
-        } else if (nameA < nameB) {
-            return -1;
-        } else {
-            return 1;
-        }
-    }
-
-    private static filterGuild(guild: Guild): boolean {
-        return guild.profiles.length > 1;
-    }
-
     private static async getGuilds(): Promise<Guild[]> {
         let res = await fetch(ENDPOINTS.GUILDS);
         let guilds: Guild[] = await res.json();
 
-        guilds = guilds.filter(Guilds.filterGuild)
-            .sort(Guilds.cmpGuildsName)
-            .sort(Guilds.cmpGuilds);
+        guilds = Util.organizeGuilds(guilds);
 
         guilds.forEach(GuildStore.storeGuild);
 
